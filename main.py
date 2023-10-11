@@ -5,7 +5,6 @@ from datetime import datetime
 from uuid import uuid4
 from fastapi.middleware.cors import CORSMiddleware
 from api.routes import router
-
 app = FastAPI()
 
 # permitir conectar al servidor front 
@@ -19,6 +18,7 @@ app.add_middleware(
 )
 
 
+# incluir rutas
 app.include_router(router, tags=["routes"])
 
 if __name__ == "__main__":
