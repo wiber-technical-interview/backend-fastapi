@@ -2,12 +2,16 @@
 from pydantic import BaseModel
 from typing import Text, Optional
 from datetime import datetime
+from typing import List,Optional
 
-# Script Model base
+
+
+class DescriptionScript(BaseModel):
+    name: str
+    script: Text
+
 class Script(BaseModel):
-    id:Optional[str] = None
-    identifier:Optional[str] = None
+    identifier: Optional[str] = None
     creationDate: Optional[datetime] = datetime.now()
-    updateDate: Optional[datetime] = datetime.now()
-    name:str
-    script:Text
+    name: str
+    script: List[DescriptionScript]
