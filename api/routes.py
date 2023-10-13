@@ -50,7 +50,12 @@ def get_all_script():
     except Exception as e:
         return {"error": "Error en el servidor"}
 
-
+#GET --- READ Script by name   
+@router.get("/{name}")
+def get_script_by_name(name:str):
+    dataScriptByname = (collection.find_one({"name": { "$regex": name,"$options": "i" }})) #excluir _id automatico de mongo 
+    dataScriptByname["_id"] = str(dataScriptByname["_id"])
+    return dataScriptByname
 
 
 #GET --- READ Script by ID   
@@ -62,10 +67,7 @@ def get_script_by_id(id:str):
     return dataScript
 
 
-
-
-
-
+#PUT ---  update script by ID 
 @router.put("/updateScript/{id}")
 def update_script(id: str, put: UpdateScript):
     try:
