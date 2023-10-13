@@ -9,9 +9,12 @@ from typing import List,Optional
 class DescriptionScript(BaseModel):
     name: str
     script: Text
+class UpdateScript(BaseModel):
+    name:str
+    description:Text
+
 
 class Script(BaseModel):
-    identifier: Optional[str] = None
     creationDate: Optional[datetime] = datetime.now()
     name: str
     script: List[DescriptionScript]
