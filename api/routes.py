@@ -53,9 +53,14 @@ def get_all_script():
 #GET --- READ Script by name   
 @router.get("/{name}")
 def get_script_by_name(name:str):
-    dataScriptByname = (collection.find_one({"name": { "$regex": name,"$options": "i" }})) #excluir _id automatico de mongo 
-    dataScriptByname["_id"] = str(dataScriptByname["_id"])
-    return dataScriptByname
+     dataScriptList = list(collection.find({"name": {"$regex": name, "$options": "i"}}))
+     for docs in dataScriptList:
+            docs["_id"] = str(docs["_id"])
+     if dataScriptList:
+        return dataScriptList
+     else:
+        return {"message": "No se encontraron scripts con el nombre proporcionado"}
+
 
 
 #GET --- READ Script by ID   
