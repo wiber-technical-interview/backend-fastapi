@@ -8,7 +8,7 @@ from api.routes import router
 app = FastAPI()
 
 # permitir conectar al servidor front 
-origins = ["https://dancing-lollipop-b46fc7.netlify.app"]
+origins = ["https://script-management.netlify.app"]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
