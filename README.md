@@ -1,4 +1,4 @@
-## Deploy de la app con RENDER Y Railway
+## Accede al Deploy de la App con desde el siguiente enlance:
 
 https://dancing-lollipop-b46fc7.netlify.app/
 
